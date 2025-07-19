@@ -63,11 +63,18 @@ let OVERRIDES = /** @type {const} */ ({
 // This will ensure our script fails if the "strict" schemas change.
 let OmeStrictJSONSchema = z.object({
   $id: z.string(),
-  allOf: z.tuple([
-    z.object({
+  allOf: z.union([
+    z.tuple([
+      z.object({
+        $ref: z.string(),
+      }),
+      z.any(),
+    ]),
+    // For v0.5 strict_well schema's allOf array has only one entry.
+    // All other strict schemas have two entries.
+    z.array(z.object({
       $ref: z.string(),
-    }),
-    z.any(),
+    })).length(1),
   ]),
 });
 
@@ -143,7 +150,7 @@ async function write_package_exports(version) {
  * @param {{ where: string }} opts
  */
 async function write_module(version, { where }) {
-  let sdir = path.resolve(__dirname, "..", "ngff", version, "schemas");
+  let sdir = path.resolve(__dirname, "..", version, "schemas");
   let entries = await fs.opendir(sdir);
 
   let schemas = [];
