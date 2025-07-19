@@ -78,6 +78,13 @@ The contents of `src/` are automatically generated from the
 [NGFF JSON specification](https://github.com/ome/ngff) via:
 
 ```sh
+git module init
+git module update
+# or
+git submodule update --remote --merge # to update the submodule commit
+```
+
+```sh
 node scripts/generate-schemas.mjs latest # or 0.1, 0.2, 0.3, 0.4, latest
 ```
 
