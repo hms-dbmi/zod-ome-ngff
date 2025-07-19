@@ -18,7 +18,3 @@
 	path = 0.5
 	url = https://github.com/ome/ngff.git
 	branch = v0.5
-[submodule "latest"]
-	path = latest
-	url = https://github.com/ome/ngff.git
-	branch = v0.5
