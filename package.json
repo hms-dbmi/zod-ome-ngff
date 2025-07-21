@@ -36,6 +36,10 @@
       "types": "./dist/0.5.d.ts",
       "import": "./dist/0.5.js"
     },
+    "./latest": {
+      "types": "./dist/latest.d.ts",
+      "import": "./dist/latest.js"
+    },
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"

@@ -405,11 +405,3 @@ export const OmeZarrSchema = z.union([
   PlateSchema,
   WellSchema,
 ]);
-
-
-
-
-
-
-
-
