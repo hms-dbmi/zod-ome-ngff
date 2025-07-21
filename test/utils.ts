@@ -19,11 +19,11 @@ export function globber(version: string) {
       path: file,
       json: () => fs.readFile(file, { encoding: "utf-8" }).then((text) => {
         const exampleObject = JSON.parse(text);
-        if (version === "0.5") {
-          // Starting with v0.5, the examples are structured like Zarr v3 zarr.json contents.
-          return exampleObject["attributes"];
+        if (version === "0.4") {
+          return exampleObject;
         }
-        return exampleObject;
+        // Starting with v0.5, the examples are structured like Zarr v3 zarr.json contents.
+        return exampleObject["attributes"];
       }),
     }));
   };
