@@ -172,7 +172,7 @@ export const OmeSchema = z
 const Axis = z.object({
   name: z.string(),
   type: z.string().default("space"),
-  units: z.string().optional(),
+  unit: z.string().optional(),
 });
 
 const Axes = z.array(Axis)

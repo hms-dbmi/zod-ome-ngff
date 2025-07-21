@@ -178,7 +178,7 @@ export const OmeSchema = withVersion(z.object({
 const Axis = z.object({
   name: z.string(),
   type: z.string().default("space"),
-  units: z.string().optional(),
+  unit: z.string().optional(),
 });
 
 const Axes = z.array(Axis)
@@ -384,13 +384,10 @@ const StrictInnerWellSchema = z.object({
         });
       }
     }),
-  version: z
-    .literal("0.4")
-    .describe("The version of the specification"),
 });
 
 export const WellSchema = withVersion(z.object({
-  well: StrictInnerWellSchema.partial({ version: true })
+  well: StrictInnerWellSchema.partial({ })
 }));
 
 export const StrictWellSchema = withVersion(z.object({

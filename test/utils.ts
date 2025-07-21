@@ -17,7 +17,14 @@ export function globber(version: string) {
     return files.map((file) => ({
       name: path.basename(file),
       path: file,
-      json: () => fs.readFile(file, { encoding: "utf-8" }).then(JSON.parse),
+      json: () => fs.readFile(file, { encoding: "utf-8" }).then((text) => {
+        const exampleObject = JSON.parse(text);
+        if (version === "0.5") {
+          // Starting with v0.5, the examples are structured like Zarr v3 zarr.json contents.
+          return exampleObject["attributes"];
+        }
+        return exampleObject;
+      }),
     }));
   };
 }

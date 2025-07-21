@@ -664,12 +664,12 @@ exports[`'TBD' - 'schemas/image.schema' > 'valid/custom_type_axes.json' 1`] = `
           {
             "name": "y",
             "type": "space",
-            "units": "micrometer",
+            "unit": "micrometer",
           },
           {
             "name": "x",
             "type": "space",
-            "units": "micrometer",
+            "unit": "micrometer",
           },
         ],
         "datasets": [
@@ -704,12 +704,12 @@ exports[`'TBD' - 'schemas/image.schema' > 'valid/invalid_axis_units.json' 1`] = 
           {
             "name": "y",
             "type": "space",
-            "units": "micron",
+            "unit": "micron",
           },
           {
             "name": "x",
             "type": "space",
-            "units": "micrometer",
+            "unit": "micrometer",
           },
         ],
         "datasets": [
@@ -743,17 +743,17 @@ exports[`'TBD' - 'schemas/image.schema' > 'valid/mismatch_axes_units.json' 1`] =
           {
             "name": "t",
             "type": "time",
-            "units": "micrometer",
+            "unit": "micrometer",
           },
           {
             "name": "y",
             "type": "space",
-            "units": "micrometer",
+            "unit": "micrometer",
           },
           {
             "name": "x",
             "type": "space",
-            "units": "micrometer",
+            "unit": "micrometer",
           },
         ],
         "datasets": [
@@ -787,12 +787,12 @@ exports[`'TBD' - 'schemas/image.schema' > 'valid/missing_name.json' 1`] = `
           {
             "name": "y",
             "type": "space",
-            "units": "micrometer",
+            "unit": "micrometer",
           },
           {
             "name": "x",
             "type": "space",
-            "units": "micrometer",
+            "unit": "micrometer",
           },
         ],
         "datasets": [
@@ -826,12 +826,12 @@ exports[`'TBD' - 'schemas/image.schema' > 'valid/missing_version.json' 1`] = `
           {
             "name": "y",
             "type": "space",
-            "units": "micrometer",
+            "unit": "micrometer",
           },
           {
             "name": "x",
             "type": "space",
-            "units": "micrometer",
+            "unit": "micrometer",
           },
         ],
         "datasets": [
@@ -869,12 +869,12 @@ exports[`'TBD' - 'schemas/image.schema' > 'valid/untyped_axes.json' 1`] = `
           {
             "name": "y",
             "type": "space",
-            "units": "micrometer",
+            "unit": "micrometer",
           },
           {
             "name": "x",
             "type": "space",
-            "units": "micrometer",
+            "unit": "micrometer",
           },
         ],
         "datasets": [
@@ -909,12 +909,12 @@ exports[`'TBD' - 'schemas/strict_image.schema' > 'valid_strict/image.json' 1`] =
           {
             "name": "y",
             "type": "space",
-            "units": "micrometer",
+            "unit": "micrometer",
           },
           {
             "name": "x",
             "type": "space",
-            "units": "micrometer",
+            "unit": "micrometer",
           },
         ],
         "datasets": [
@@ -949,12 +949,12 @@ exports[`'TBD' - 'schemas/strict_image.schema' > 'valid_strict/image_metadata.js
           {
             "name": "y",
             "type": "space",
-            "units": "micrometer",
+            "unit": "micrometer",
           },
           {
             "name": "x",
             "type": "space",
-            "units": "micrometer",
+            "unit": "micrometer",
           },
         ],
         "datasets": [
@@ -997,17 +997,17 @@ exports[`'TBD' - 'schemas/strict_image.schema' > 'valid_strict/image_omero.json'
           {
             "name": "z",
             "type": "space",
-            "units": "micrometer",
+            "unit": "micrometer",
           },
           {
             "name": "y",
             "type": "space",
-            "units": "micrometer",
+            "unit": "micrometer",
           },
           {
             "name": "x",
             "type": "space",
-            "units": "micrometer",
+            "unit": "micrometer",
           },
         ],
         "datasets": [
@@ -1098,6 +1098,7 @@ exports[`'TBD' - 'schemas/strict_image.schema' > 'valid_strict/multiscales_examp
           {
             "name": "t",
             "type": "time",
+            "unit": "millisecond",
           },
           {
             "name": "c",
@@ -1106,14 +1107,17 @@ exports[`'TBD' - 'schemas/strict_image.schema' > 'valid_strict/multiscales_examp
           {
             "name": "z",
             "type": "space",
+            "unit": "micrometer",
           },
           {
             "name": "y",
             "type": "space",
+            "unit": "micrometer",
           },
           {
             "name": "x",
             "type": "space",
+            "unit": "micrometer",
           },
         ],
         "coordinateTransformations": [
@@ -1193,12 +1197,12 @@ exports[`'TBD' - 'schemas/strict_image.schema' > 'valid_strict/multiscales_trans
           {
             "name": "y",
             "type": "space",
-            "units": "micrometer",
+            "unit": "micrometer",
           },
           {
             "name": "x",
             "type": "space",
-            "units": "micrometer",
+            "unit": "micrometer",
           },
         ],
         "coordinateTransformations": [

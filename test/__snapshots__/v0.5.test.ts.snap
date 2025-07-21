@@ -7,6 +7,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/duplicate_axes.json' 1`] = `
     "code": "custom",
     "message": "No duplicate axes allowed.",
     "path": [
+      "ome",
       "multiscales",
       0,
       "axes"
@@ -24,6 +25,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/duplicate_scale.json' 1`] = `
     "code": "custom",
     "message": "No duplicate scale transformations allowed.",
     "path": [
+      "ome",
       "multiscales",
       0,
       "datasets",
@@ -47,6 +49,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/empty_transformations.json' 1
     "exact": false,
     "message": "Array must contain at least 1 element(s)",
     "path": [
+      "ome",
       "multiscales",
       0,
       "datasets",
@@ -70,6 +73,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/invalid_axes_count.json' 1`] 
     "exact": false,
     "message": "Array must contain at least 2 element(s)",
     "path": [
+      "ome",
       "multiscales",
       0,
       "axes"
@@ -79,6 +83,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/invalid_axes_count.json' 1`] 
     "code": "custom",
     "message": "Missing space axes.",
     "path": [
+      "ome",
       "multiscales",
       0,
       "axes"
@@ -96,6 +101,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/invalid_axis_type.json' 1`] =
     "code": "custom",
     "message": "Missing space axes.",
     "path": [
+      "ome",
       "multiscales",
       0,
       "axes"
@@ -114,6 +120,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/invalid_channels_color.json' 
     "expected": "string",
     "received": "number",
     "path": [
+      "ome",
       "omero",
       "channels",
       0,
@@ -134,6 +141,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/invalid_channels_window.json'
     "expected": "number",
     "received": "string",
     "path": [
+      "ome",
       "omero",
       "channels",
       0,
@@ -157,16 +165,19 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/invalid_multiscales_transform
         "issues": [
           {
             "received": "scale",
-            "code": "invalid_literal",
-            "expected": "identity",
+            "code": "invalid_enum_value",
+            "options": [
+              "identity"
+            ],
             "path": [
+              "ome",
               "multiscales",
               0,
               "coordinateTransformations",
               0,
               "type"
             ],
-            "message": "Invalid literal value, expected \\"identity\\""
+            "message": "Invalid enum value. Expected 'identity', received 'scale'"
           }
         ],
         "name": "ZodError"
@@ -181,6 +192,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/invalid_multiscales_transform
             "exact": false,
             "message": "Array must contain at least 2 element(s)",
             "path": [
+              "ome",
               "multiscales",
               0,
               "coordinateTransformations",
@@ -193,6 +205,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/invalid_multiscales_transform
             "expected": "number",
             "received": "string",
             "path": [
+              "ome",
               "multiscales",
               0,
               "coordinateTransformations",
@@ -209,22 +222,26 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/invalid_multiscales_transform
         "issues": [
           {
             "received": "scale",
-            "code": "invalid_literal",
-            "expected": "translation",
+            "code": "invalid_enum_value",
+            "options": [
+              "translation"
+            ],
             "path": [
+              "ome",
               "multiscales",
               0,
               "coordinateTransformations",
               0,
               "type"
             ],
-            "message": "Invalid literal value, expected \\"translation\\""
+            "message": "Invalid enum value. Expected 'translation', received 'scale'"
           },
           {
             "code": "invalid_type",
             "expected": "array",
             "received": "undefined",
             "path": [
+              "ome",
               "multiscales",
               0,
               "coordinateTransformations",
@@ -238,6 +255,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/invalid_multiscales_transform
       }
     ],
     "path": [
+      "ome",
       "multiscales",
       0,
       "coordinateTransformations",
@@ -258,6 +276,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/invalid_path.json' 1`] = `
     "expected": "string",
     "received": "number",
     "path": [
+      "ome",
       "multiscales",
       0,
       "datasets",
@@ -281,9 +300,12 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/invalid_transformation_type.j
         "issues": [
           {
             "received": "translation",
-            "code": "invalid_literal",
-            "expected": "identity",
+            "code": "invalid_enum_value",
+            "options": [
+              "identity"
+            ],
             "path": [
+              "ome",
               "multiscales",
               0,
               "datasets",
@@ -292,7 +314,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/invalid_transformation_type.j
               0,
               "type"
             ],
-            "message": "Invalid literal value, expected \\"identity\\""
+            "message": "Invalid enum value. Expected 'identity', received 'translation'"
           }
         ],
         "name": "ZodError"
@@ -301,9 +323,12 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/invalid_transformation_type.j
         "issues": [
           {
             "received": "translation",
-            "code": "invalid_literal",
-            "expected": "scale",
+            "code": "invalid_enum_value",
+            "options": [
+              "scale"
+            ],
             "path": [
+              "ome",
               "multiscales",
               0,
               "datasets",
@@ -312,7 +337,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/invalid_transformation_type.j
               0,
               "type"
             ],
-            "message": "Invalid literal value, expected \\"scale\\""
+            "message": "Invalid enum value. Expected 'scale', received 'translation'"
           }
         ],
         "name": "ZodError"
@@ -324,6 +349,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/invalid_transformation_type.j
             "expected": "array",
             "received": "undefined",
             "path": [
+              "ome",
               "multiscales",
               0,
               "datasets",
@@ -339,6 +365,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/invalid_transformation_type.j
       }
     ],
     "path": [
+      "ome",
       "multiscales",
       0,
       "datasets",
@@ -353,25 +380,6 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/invalid_transformation_type.j
 }
 `;
 
-exports[`'TBD' - 'schemas/image.schema' > 'invalid/invalid_version.json' 1`] = `
-{
-  "error": [ZodError: [
-  {
-    "received": "0.3",
-    "code": "invalid_literal",
-    "expected": "0.5-dev",
-    "path": [
-      "multiscales",
-      0,
-      "version"
-    ],
-    "message": "Invalid literal value, expected \\"0.5-dev\\""
-  }
-]],
-  "success": false,
-}
-`;
-
 exports[`'TBD' - 'schemas/image.schema' > 'invalid/missing_axes.json' 1`] = `
 {
   "error": [ZodError: [
@@ -380,6 +388,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/missing_axes.json' 1`] = `
     "expected": "array",
     "received": "undefined",
     "path": [
+      "ome",
       "multiscales",
       0,
       "axes"
@@ -399,6 +408,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/missing_axes_name.json' 1`] =
     "expected": "string",
     "received": "undefined",
     "path": [
+      "ome",
       "multiscales",
       0,
       "axes",
@@ -412,6 +422,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/missing_axes_name.json' 1`] =
     "expected": "string",
     "received": "undefined",
     "path": [
+      "ome",
       "multiscales",
       0,
       "axes",
@@ -433,6 +444,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/missing_datasets.json' 1`] = 
     "expected": "array",
     "received": "undefined",
     "path": [
+      "ome",
       "multiscales",
       0,
       "datasets"
@@ -452,6 +464,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/missing_path.json' 1`] = `
     "expected": "string",
     "received": "undefined",
     "path": [
+      "ome",
       "multiscales",
       0,
       "datasets",
@@ -472,6 +485,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/missing_scale.json' 1`] = `
     "code": "custom",
     "message": "Missing scale for translation.",
     "path": [
+      "ome",
       "multiscales",
       0,
       "datasets",
@@ -491,6 +505,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/missing_space_axes.json' 1`] 
     "code": "custom",
     "message": "Missing space axes.",
     "path": [
+      "ome",
       "multiscales",
       0,
       "axes"
@@ -509,6 +524,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/missing_transformations.json'
     "expected": "array",
     "received": "undefined",
     "path": [
+      "ome",
       "multiscales",
       0,
       "datasets",
@@ -533,6 +549,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/no_axes.json' 1`] = `
     "exact": false,
     "message": "Array must contain at least 2 element(s)",
     "path": [
+      "ome",
       "multiscales",
       0,
       "axes"
@@ -542,6 +559,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/no_axes.json' 1`] = `
     "code": "custom",
     "message": "Missing space axes.",
     "path": [
+      "ome",
       "multiscales",
       0,
       "axes"
@@ -563,6 +581,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/no_datasets.json' 1`] = `
     "exact": false,
     "message": "Array must contain at least 1 element(s)",
     "path": [
+      "ome",
       "multiscales",
       0,
       "datasets"
@@ -584,6 +603,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/no_multiscales.json' 1`] = `
     "exact": false,
     "message": "Array must contain at least 1 element(s)",
     "path": [
+      "ome",
       "multiscales"
     ]
   }
@@ -599,6 +619,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/one_space_axes.json' 1`] = `
     "code": "custom",
     "message": "Missing space axes.",
     "path": [
+      "ome",
       "multiscales",
       0,
       "axes"
@@ -616,6 +637,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/too_many_axes.json' 1`] = `
     "code": "custom",
     "message": "Too many axes.",
     "path": [
+      "ome",
       "multiscales",
       0,
       "axes"
@@ -633,6 +655,7 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/too_many_space_axes.json' 1`]
     "code": "custom",
     "message": "Too many space axes.",
     "path": [
+      "ome",
       "multiscales",
       0,
       "axes"
@@ -646,42 +669,44 @@ exports[`'TBD' - 'schemas/image.schema' > 'invalid/too_many_space_axes.json' 1`]
 exports[`'TBD' - 'schemas/image.schema' > 'valid/custom_type_axes.json' 1`] = `
 {
   "data": {
-    "multiscales": [
-      {
-        "axes": [
-          {
-            "name": "angle",
-            "type": "custom",
-          },
-          {
-            "name": "y",
-            "type": "space",
-            "units": "micrometer",
-          },
-          {
-            "name": "x",
-            "type": "space",
-            "units": "micrometer",
-          },
-        ],
-        "datasets": [
-          {
-            "coordinateTransformations": [
-              {
-                "scale": [
-                  1,
-                  1,
-                  1,
-                ],
-                "type": "scale",
-              },
-            ],
-            "path": "0",
-          },
-        ],
-        "version": "0.5-dev",
-      },
-    ],
+    "ome": {
+      "multiscales": [
+        {
+          "axes": [
+            {
+              "name": "angle",
+              "type": "custom",
+            },
+            {
+              "name": "y",
+              "type": "space",
+              "unit": "micrometer",
+            },
+            {
+              "name": "x",
+              "type": "space",
+              "unit": "micrometer",
+            },
+          ],
+          "datasets": [
+            {
+              "coordinateTransformations": [
+                {
+                  "scale": [
+                    1,
+                    1,
+                    1,
+                  ],
+                  "type": "scale",
+                },
+              ],
+              "path": "0",
+            },
+          ],
+        },
+      ],
+      "version": "0.5",
+    },
   },
   "success": true,
 }
@@ -690,37 +715,39 @@ exports[`'TBD' - 'schemas/image.schema' > 'valid/custom_type_axes.json' 1`] = `
 exports[`'TBD' - 'schemas/image.schema' > 'valid/invalid_axis_units.json' 1`] = `
 {
   "data": {
-    "multiscales": [
-      {
-        "axes": [
-          {
-            "name": "y",
-            "type": "space",
-            "units": "micron",
-          },
-          {
-            "name": "x",
-            "type": "space",
-            "units": "micrometer",
-          },
-        ],
-        "datasets": [
-          {
-            "coordinateTransformations": [
-              {
-                "scale": [
-                  0.13,
-                  0.13,
-                ],
-                "type": "scale",
-              },
-            ],
-            "path": "0",
-          },
-        ],
-        "version": "0.5-dev",
-      },
-    ],
+    "ome": {
+      "multiscales": [
+        {
+          "axes": [
+            {
+              "name": "y",
+              "type": "space",
+              "unit": "micron",
+            },
+            {
+              "name": "x",
+              "type": "space",
+              "unit": "micrometer",
+            },
+          ],
+          "datasets": [
+            {
+              "coordinateTransformations": [
+                {
+                  "scale": [
+                    0.13,
+                    0.13,
+                  ],
+                  "type": "scale",
+                },
+              ],
+              "path": "0",
+            },
+          ],
+        },
+      ],
+      "version": "0.5",
+    },
   },
   "success": true,
 }
@@ -729,42 +756,44 @@ exports[`'TBD' - 'schemas/image.schema' > 'valid/invalid_axis_units.json' 1`] = 
 exports[`'TBD' - 'schemas/image.schema' > 'valid/mismatch_axes_units.json' 1`] = `
 {
   "data": {
-    "multiscales": [
-      {
-        "axes": [
-          {
-            "name": "t",
-            "type": "time",
-            "units": "micrometer",
-          },
-          {
-            "name": "y",
-            "type": "space",
-            "units": "micrometer",
-          },
-          {
-            "name": "x",
-            "type": "space",
-            "units": "micrometer",
-          },
-        ],
-        "datasets": [
-          {
-            "coordinateTransformations": [
-              {
-                "scale": [
-                  0.13,
-                  0.13,
-                ],
-                "type": "scale",
-              },
-            ],
-            "path": "0",
-          },
-        ],
-        "version": "0.5-dev",
-      },
-    ],
+    "ome": {
+      "multiscales": [
+        {
+          "axes": [
+            {
+              "name": "t",
+              "type": "time",
+              "unit": "micrometer",
+            },
+            {
+              "name": "y",
+              "type": "space",
+              "unit": "micrometer",
+            },
+            {
+              "name": "x",
+              "type": "space",
+              "unit": "micrometer",
+            },
+          ],
+          "datasets": [
+            {
+              "coordinateTransformations": [
+                {
+                  "scale": [
+                    0.13,
+                    0.13,
+                  ],
+                  "type": "scale",
+                },
+              ],
+              "path": "0",
+            },
+          ],
+        },
+      ],
+      "version": "0.5",
+    },
   },
   "success": true,
 }
@@ -773,76 +802,39 @@ exports[`'TBD' - 'schemas/image.schema' > 'valid/mismatch_axes_units.json' 1`] =
 exports[`'TBD' - 'schemas/image.schema' > 'valid/missing_name.json' 1`] = `
 {
   "data": {
-    "multiscales": [
-      {
-        "axes": [
-          {
-            "name": "y",
-            "type": "space",
-            "units": "micrometer",
-          },
-          {
-            "name": "x",
-            "type": "space",
-            "units": "micrometer",
-          },
-        ],
-        "datasets": [
-          {
-            "coordinateTransformations": [
-              {
-                "scale": [
-                  1,
-                  1,
-                ],
-                "type": "scale",
-              },
-            ],
-            "path": "path/to/0",
-          },
-        ],
-        "version": "0.5-dev",
-      },
-    ],
-  },
-  "success": true,
-}
-`;
-
-exports[`'TBD' - 'schemas/image.schema' > 'valid/missing_version.json' 1`] = `
-{
-  "data": {
-    "multiscales": [
-      {
-        "axes": [
-          {
-            "name": "y",
-            "type": "space",
-            "units": "micrometer",
-          },
-          {
-            "name": "x",
-            "type": "space",
-            "units": "micrometer",
-          },
-        ],
-        "datasets": [
-          {
-            "coordinateTransformations": [
-              {
-                "scale": [
-                  1,
-                  1,
-                ],
-                "type": "scale",
-              },
-            ],
-            "path": "path/to/0",
-          },
-        ],
-        "name": "example",
-      },
-    ],
+    "ome": {
+      "multiscales": [
+        {
+          "axes": [
+            {
+              "name": "y",
+              "type": "space",
+              "unit": "micrometer",
+            },
+            {
+              "name": "x",
+              "type": "space",
+              "unit": "micrometer",
+            },
+          ],
+          "datasets": [
+            {
+              "coordinateTransformations": [
+                {
+                  "scale": [
+                    1,
+                    1,
+                  ],
+                  "type": "scale",
+                },
+              ],
+              "path": "path/to/0",
+            },
+          ],
+        },
+      ],
+      "version": "0.5",
+    },
   },
   "success": true,
 }
@@ -851,41 +843,44 @@ exports[`'TBD' - 'schemas/image.schema' > 'valid/missing_version.json' 1`] = `
 exports[`'TBD' - 'schemas/image.schema' > 'valid/untyped_axes.json' 1`] = `
 {
   "data": {
-    "multiscales": [
-      {
-        "axes": [
-          {
-            "name": "angle",
-          },
-          {
-            "name": "y",
-            "type": "space",
-            "units": "micrometer",
-          },
-          {
-            "name": "x",
-            "type": "space",
-            "units": "micrometer",
-          },
-        ],
-        "datasets": [
-          {
-            "coordinateTransformations": [
-              {
-                "scale": [
-                  1,
-                  1,
-                  1,
-                ],
-                "type": "scale",
-              },
-            ],
-            "path": "0",
-          },
-        ],
-        "version": "0.5-dev",
-      },
-    ],
+    "ome": {
+      "multiscales": [
+        {
+          "axes": [
+            {
+              "name": "angle",
+              "type": "space",
+            },
+            {
+              "name": "y",
+              "type": "space",
+              "unit": "micrometer",
+            },
+            {
+              "name": "x",
+              "type": "space",
+              "unit": "micrometer",
+            },
+          ],
+          "datasets": [
+            {
+              "coordinateTransformations": [
+                {
+                  "scale": [
+                    1,
+                    1,
+                    1,
+                  ],
+                  "type": "scale",
+                },
+              ],
+              "path": "0",
+            },
+          ],
+        },
+      ],
+      "version": "0.5",
+    },
   },
   "success": true,
 }
@@ -894,38 +889,40 @@ exports[`'TBD' - 'schemas/image.schema' > 'valid/untyped_axes.json' 1`] = `
 exports[`'TBD' - 'schemas/strict_image.schema' > 'valid_strict/image.json' 1`] = `
 {
   "data": {
-    "multiscales": [
-      {
-        "axes": [
-          {
-            "name": "y",
-            "type": "space",
-            "units": "micrometer",
-          },
-          {
-            "name": "x",
-            "type": "space",
-            "units": "micrometer",
-          },
-        ],
-        "datasets": [
-          {
-            "coordinateTransformations": [
-              {
-                "scale": [
-                  1,
-                  1,
-                ],
-                "type": "scale",
-              },
-            ],
-            "path": "0",
-          },
-        ],
-        "name": "simple_image",
-        "version": "0.5-dev",
-      },
-    ],
+    "ome": {
+      "multiscales": [
+        {
+          "axes": [
+            {
+              "name": "y",
+              "type": "space",
+              "unit": "micrometer",
+            },
+            {
+              "name": "x",
+              "type": "space",
+              "unit": "micrometer",
+            },
+          ],
+          "datasets": [
+            {
+              "coordinateTransformations": [
+                {
+                  "scale": [
+                    1,
+                    1,
+                  ],
+                  "type": "scale",
+                },
+              ],
+              "path": "0",
+            },
+          ],
+          "name": "simple_image",
+        },
+      ],
+      "version": "0.5",
+    },
   },
   "success": true,
 }
@@ -934,38 +931,40 @@ exports[`'TBD' - 'schemas/strict_image.schema' > 'valid_strict/image.json' 1`] =
 exports[`'TBD' - 'schemas/strict_image.schema' > 'valid_strict/image_metadata.json' 1`] = `
 {
   "data": {
-    "multiscales": [
-      {
-        "axes": [
-          {
-            "name": "y",
-            "type": "space",
-            "units": "micrometer",
-          },
-          {
-            "name": "x",
-            "type": "space",
-            "units": "micrometer",
-          },
-        ],
-        "datasets": [
-          {
-            "coordinateTransformations": [
-              {
-                "scale": [
-                  1,
-                  1,
-                ],
-                "type": "scale",
-              },
-            ],
-            "path": "path/to/0",
-          },
-        ],
-        "name": "example",
-        "version": "0.5-dev",
-      },
-    ],
+    "ome": {
+      "multiscales": [
+        {
+          "axes": [
+            {
+              "name": "y",
+              "type": "space",
+              "unit": "micrometer",
+            },
+            {
+              "name": "x",
+              "type": "space",
+              "unit": "micrometer",
+            },
+          ],
+          "datasets": [
+            {
+              "coordinateTransformations": [
+                {
+                  "scale": [
+                    1,
+                    1,
+                  ],
+                  "type": "scale",
+                },
+              ],
+              "path": "path/to/0",
+            },
+          ],
+          "name": "example",
+        },
+      ],
+      "version": "0.5",
+    },
   },
   "success": true,
 }
@@ -974,106 +973,108 @@ exports[`'TBD' - 'schemas/strict_image.schema' > 'valid_strict/image_metadata.js
 exports[`'TBD' - 'schemas/strict_image.schema' > 'valid_strict/image_omero.json' 1`] = `
 {
   "data": {
-    "multiscales": [
-      {
-        "axes": [
-          {
-            "name": "t",
-            "type": "time",
-          },
-          {
-            "name": "c",
-            "type": "channel",
-          },
-          {
-            "name": "z",
-            "type": "space",
-            "units": "micrometer",
-          },
-          {
-            "name": "y",
-            "type": "space",
-            "units": "micrometer",
-          },
-          {
-            "name": "x",
-            "type": "space",
-            "units": "micrometer",
-          },
-        ],
-        "datasets": [
-          {
-            "coordinateTransformations": [
-              {
-                "scale": [
-                  1,
-                  1,
-                  0.5,
-                  0.13,
-                  0.13,
-                ],
-                "type": "scale",
-              },
-              {
-                "translation": [
-                  0,
-                  9,
-                  0.5,
-                  25.74,
-                  21.58,
-                ],
-                "type": "translation",
-              },
-            ],
-            "path": "0",
-          },
-          {
-            "coordinateTransformations": [
-              {
-                "scale": [
-                  1,
-                  1,
-                  1,
-                  0.26,
-                  0.26,
-                ],
-                "type": "scale",
-              },
-            ],
-            "path": "1",
-          },
-        ],
-        "name": "image_with_omero_metadata",
-        "version": "0.5-dev",
-      },
-    ],
-    "omero": {
-      "channels": [
+    "ome": {
+      "multiscales": [
         {
-          "active": true,
-          "color": "00FF00",
-          "family": "linear",
-          "label": "FITC",
-          "window": {
-            "end": 813,
-            "max": 870,
-            "min": 102,
-            "start": 82,
-          },
-        },
-        {
-          "active": true,
-          "color": "FF0000",
-          "family": "linear",
-          "label": "RD-TR-PE",
-          "window": {
-            "end": 815,
-            "max": 441,
-            "min": 129,
-            "start": 78,
-          },
+          "axes": [
+            {
+              "name": "t",
+              "type": "time",
+            },
+            {
+              "name": "c",
+              "type": "channel",
+            },
+            {
+              "name": "z",
+              "type": "space",
+              "unit": "micrometer",
+            },
+            {
+              "name": "y",
+              "type": "space",
+              "unit": "micrometer",
+            },
+            {
+              "name": "x",
+              "type": "space",
+              "unit": "micrometer",
+            },
+          ],
+          "datasets": [
+            {
+              "coordinateTransformations": [
+                {
+                  "scale": [
+                    1,
+                    1,
+                    0.5,
+                    0.13,
+                    0.13,
+                  ],
+                  "type": "scale",
+                },
+                {
+                  "translation": [
+                    0,
+                    9,
+                    0.5,
+                    25.74,
+                    21.58,
+                  ],
+                  "type": "translation",
+                },
+              ],
+              "path": "0",
+            },
+            {
+              "coordinateTransformations": [
+                {
+                  "scale": [
+                    1,
+                    1,
+                    1,
+                    0.26,
+                    0.26,
+                  ],
+                  "type": "scale",
+                },
+              ],
+              "path": "1",
+            },
+          ],
+          "name": "image_with_omero_metadata",
         },
       ],
+      "omero": {
+        "channels": [
+          {
+            "active": true,
+            "color": "00FF00",
+            "family": "linear",
+            "label": "FITC",
+            "window": {
+              "end": 813,
+              "max": 870,
+              "min": 102,
+              "start": 82,
+            },
+          },
+          {
+            "active": true,
+            "color": "FF0000",
+            "family": "linear",
+            "label": "RD-TR-PE",
+            "window": {
+              "end": 815,
+              "max": 441,
+              "min": 129,
+              "start": 78,
+            },
+          },
+        ],
+      },
+      "version": "0.5",
     },
   },
   "success": true,
@@ -1083,93 +1084,99 @@ exports[`'TBD' - 'schemas/strict_image.schema' > 'valid_strict/image_omero.json'
 exports[`'TBD' - 'schemas/strict_image.schema' > 'valid_strict/multiscales_example.json' 1`] = `
 {
   "data": {
-    "multiscales": [
-      {
-        "axes": [
-          {
-            "name": "t",
-            "type": "time",
-          },
-          {
-            "name": "c",
-            "type": "channel",
-          },
-          {
-            "name": "z",
-            "type": "space",
-          },
-          {
-            "name": "y",
-            "type": "space",
-          },
-          {
-            "name": "x",
-            "type": "space",
-          },
-        ],
-        "coordinateTransformations": [
-          {
-            "scale": [
-              0.1,
-              1,
-              1,
-              1,
-              1,
-            ],
-            "type": "scale",
-          },
-        ],
-        "datasets": [
-          {
-            "coordinateTransformations": [
-              {
-                "scale": [
-                  1,
-                  1,
-                  0.5,
-                  0.5,
-                  0.5,
-                ],
-                "type": "scale",
-              },
-            ],
-            "path": "0",
-          },
-          {
-            "coordinateTransformations": [
-              {
-                "scale": [
-                  1,
-                  1,
-                  1,
-                  1,
-                  1,
-                ],
-                "type": "scale",
-              },
-            ],
-            "path": "1",
-          },
-          {
-            "coordinateTransformations": [
-              {
-                "scale": [
-                  1,
-                  1,
-                  2,
-                  2,
-                  2,
-                ],
-                "type": "scale",
-              },
-            ],
-            "path": "2",
-          },
-        ],
-        "name": "example",
-        "version": "0.5-dev",
-      },
-    ],
+    "ome": {
+      "multiscales": [
+        {
+          "axes": [
+            {
+              "name": "t",
+              "type": "time",
+              "unit": "millisecond",
+            },
+            {
+              "name": "c",
+              "type": "channel",
+            },
+            {
+              "name": "z",
+              "type": "space",
+              "unit": "micrometer",
+            },
+            {
+              "name": "y",
+              "type": "space",
+              "unit": "micrometer",
+            },
+            {
+              "name": "x",
+              "type": "space",
+              "unit": "micrometer",
+            },
+          ],
+          "coordinateTransformations": [
+            {
+              "scale": [
+                0.1,
+                1,
+                1,
+                1,
+                1,
+              ],
+              "type": "scale",
+            },
+          ],
+          "datasets": [
+            {
+              "coordinateTransformations": [
+                {
+                  "scale": [
+                    1,
+                    1,
+                    0.5,
+                    0.5,
+                    0.5,
+                  ],
+                  "type": "scale",
+                },
+              ],
+              "path": "0",
+            },
+            {
+              "coordinateTransformations": [
+                {
+                  "scale": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                  ],
+                  "type": "scale",
+                },
+              ],
+              "path": "1",
+            },
+            {
+              "coordinateTransformations": [
+                {
+                  "scale": [
+                    1,
+                    1,
+                    2,
+                    2,
+                    2,
+                  ],
+                  "type": "scale",
+                },
+              ],
+              "path": "2",
+            },
+          ],
+          "name": "example",
+        },
+      ],
+      "version": "0.5",
+    },
   },
   "success": true,
 }
@@ -1178,47 +1185,49 @@ exports[`'TBD' - 'schemas/strict_image.schema' > 'valid_strict/multiscales_examp
 exports[`'TBD' - 'schemas/strict_image.schema' > 'valid_strict/multiscales_transformati…' 1`] = `
 {
   "data": {
-    "multiscales": [
-      {
-        "axes": [
-          {
-            "name": "y",
-            "type": "space",
-            "units": "micrometer",
-          },
-          {
-            "name": "x",
-            "type": "space",
-            "units": "micrometer",
-          },
-        ],
-        "coordinateTransformations": [
-          {
-            "scale": [
-              10,
-              10,
-            ],
-            "type": "scale",
-          },
-        ],
-        "datasets": [
-          {
-            "coordinateTransformations": [
-              {
-                "scale": [
-                  1,
-                  1,
-                ],
-                "type": "scale",
-              },
-            ],
-            "path": "0",
-          },
-        ],
-        "name": "image_with_coordinateTransformations",
-        "version": "0.5-dev",
-      },
-    ],
+    "ome": {
+      "multiscales": [
+        {
+          "axes": [
+            {
+              "name": "y",
+              "type": "space",
+              "unit": "micrometer",
+            },
+            {
+              "name": "x",
+              "type": "space",
+              "unit": "micrometer",
+            },
+          ],
+          "coordinateTransformations": [
+            {
+              "scale": [
+                10,
+                10,
+              ],
+              "type": "scale",
+            },
+          ],
+          "datasets": [
+            {
+              "coordinateTransformations": [
+                {
+                  "scale": [
+                    1,
+                    1,
+                  ],
+                  "type": "scale",
+                },
+              ],
+              "path": "0",
+            },
+          ],
+          "name": "image_with_coordinateTransformations",
+        },
+      ],
+      "version": "0.5",
+    },
   },
   "success": true,
 }
@@ -1231,6 +1240,7 @@ exports[`'Tests for the image-label JSON schema' - 'schemas/label.schema' > 'ima
     "code": "custom",
     "message": "No duplicate color_labels allowed.",
     "path": [
+      "ome",
       "image-label",
       "colors"
     ]
@@ -1248,6 +1258,7 @@ exports[`'Tests for the image-label JSON schema' - 'schemas/label.schema' > 'ima
     "expected": "number",
     "received": "undefined",
     "path": [
+      "ome",
       "image-label",
       "colors",
       0,
@@ -1271,6 +1282,7 @@ exports[`'Tests for the image-label JSON schema' - 'schemas/label.schema' > 'ima
     "exact": false,
     "message": "Array must contain at least 4 element(s)",
     "path": [
+      "ome",
       "image-label",
       "colors",
       0,
@@ -1293,6 +1305,7 @@ exports[`'Tests for the image-label JSON schema' - 'schemas/label.schema' > 'ima
     "exact": false,
     "message": "Number must be less than or equal to 255",
     "path": [
+      "ome",
       "image-label",
       "colors",
       0,
@@ -1316,6 +1329,7 @@ exports[`'Tests for the image-label JSON schema' - 'schemas/label.schema' > 'ima
     "exact": false,
     "message": "Array must contain at least 1 element(s)",
     "path": [
+      "ome",
       "image-label",
       "colors"
     ]
@@ -1336,6 +1350,7 @@ exports[`'Tests for the image-label JSON schema' - 'schemas/label.schema' > 'ima
     "exact": false,
     "message": "Array must contain at least 1 element(s)",
     "path": [
+      "ome",
       "image-label",
       "properties"
     ]
@@ -1348,18 +1363,21 @@ exports[`'Tests for the image-label JSON schema' - 'schemas/label.schema' > 'ima
 exports[`'Tests for the image-label JSON schema' - 'schemas/label.schema' > 'image-label/minimal' 1`] = `
 {
   "data": {
-    "image-label": {
-      "colors": [
-        {
-          "label-value": 1,
-          "rgba": [
-            0,
-            0,
-            0,
-            0,
-          ],
-        },
-      ],
+    "ome": {
+      "image-label": {
+        "colors": [
+          {
+            "label-value": 1,
+            "rgba": [
+              0,
+              0,
+              0,
+              0,
+            ],
+          },
+        ],
+      },
+      "version": "0.5",
     },
   },
   "success": true,
@@ -1369,23 +1387,26 @@ exports[`'Tests for the image-label JSON schema' - 'schemas/label.schema' > 'ima
 exports[`'Tests for the image-label JSON schema' - 'schemas/label.schema' > 'image-label/minimal_properties' 1`] = `
 {
   "data": {
-    "image-label": {
-      "colors": [
-        {
-          "label-value": 1,
-          "rgba": [
-            0,
-            0,
-            0,
-            0,
-          ],
-        },
-      ],
-      "properties": [
-        {
-          "label-value": 1,
-        },
-      ],
+    "ome": {
+      "image-label": {
+        "colors": [
+          {
+            "label-value": 1,
+            "rgba": [
+              0,
+              0,
+              0,
+              0,
+            ],
+          },
+        ],
+        "properties": [
+          {
+            "label-value": 1,
+          },
+        ],
+      },
+      "version": "0.5",
     },
   },
   "success": true,
@@ -1400,6 +1421,7 @@ exports[`'Tests for the image-label JSON schema' - 'schemas/label.schema' > 'ima
     "expected": "number",
     "received": "undefined",
     "path": [
+      "ome",
       "image-label",
       "properties",
       0,
@@ -1423,6 +1445,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/acq
     "exact": false,
     "message": "Number must be greater than or equal to 0",
     "path": [
+      "ome",
       "plate",
       "acquisitions",
       0,
@@ -1442,6 +1465,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/acq
     "expected": "number",
     "received": "string",
     "path": [
+      "ome",
       "plate",
       "acquisitions",
       0,
@@ -1462,6 +1486,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/acq
     "expected": "number",
     "received": "string",
     "path": [
+      "ome",
       "plate",
       "acquisitions",
       0,
@@ -1485,6 +1510,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/acq
     "exact": false,
     "message": "Number must be greater than 0",
     "path": [
+      "ome",
       "plate",
       "acquisitions",
       0,
@@ -1503,6 +1529,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/dup
     "code": "custom",
     "message": "No duplicates columns allowed.",
     "path": [
+      "ome",
       "plate",
       "columns"
     ]
@@ -1519,6 +1546,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/dup
     "code": "custom",
     "message": "No duplicates rows allowed.",
     "path": [
+      "ome",
       "plate",
       "rows"
     ]
@@ -1535,6 +1563,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/dup
     "code": "custom",
     "message": "No duplicates columns allowed.",
     "path": [
+      "ome",
       "plate",
       "columns"
     ]
@@ -1555,6 +1584,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/emp
     "exact": false,
     "message": "Array must contain at least 1 element(s)",
     "path": [
+      "ome",
       "plate",
       "columns"
     ]
@@ -1575,6 +1605,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/emp
     "exact": false,
     "message": "Array must contain at least 1 element(s)",
     "path": [
+      "ome",
       "plate",
       "rows"
     ]
@@ -1592,6 +1623,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/emp
     "expected": "array",
     "received": "object",
     "path": [
+      "ome",
       "plate",
       "wells"
     ],
@@ -1602,50 +1634,35 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/emp
 }
 `;
 
-exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/invalid_version' 1`] = `
-{
-  "error": [ZodError: [
-  {
-    "received": "foo",
-    "code": "invalid_literal",
-    "expected": "0.5-dev",
-    "path": [
-      "plate",
-      "version"
-    ],
-    "message": "Invalid literal value, expected \\"0.5-dev\\""
-  }
-]],
-  "success": false,
-}
-`;
-
 exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/minimal_acquisitions' 1`] = `
 {
   "data": {
-    "plate": {
-      "acquisitions": [
-        {
-          "id": 0,
-        },
-      ],
-      "columns": [
-        {
-          "name": "A",
-        },
-      ],
-      "rows": [
-        {
-          "name": "1",
-        },
-      ],
-      "wells": [
-        {
-          "columnIndex": 0,
-          "path": "A/1",
-          "rowIndex": 0,
-        },
-      ],
+    "ome": {
+      "plate": {
+        "acquisitions": [
+          {
+            "id": 0,
+          },
+        ],
+        "columns": [
+          {
+            "name": "A",
+          },
+        ],
+        "rows": [
+          {
+            "name": "1",
+          },
+        ],
+        "wells": [
+          {
+            "columnIndex": 0,
+            "path": "A/1",
+            "rowIndex": 0,
+          },
+        ],
+      },
+      "version": "0.5",
     },
   },
   "success": true,
@@ -1655,24 +1672,27 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/min
 exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/minimal_no_acquisitions' 1`] = `
 {
   "data": {
-    "plate": {
-      "columns": [
-        {
-          "name": "A",
-        },
-      ],
-      "rows": [
-        {
-          "name": "1",
-        },
-      ],
-      "wells": [
-        {
-          "columnIndex": 0,
-          "path": "A/1",
-          "rowIndex": 0,
-        },
-      ],
+    "ome": {
+      "plate": {
+        "columns": [
+          {
+            "name": "A",
+          },
+        ],
+        "rows": [
+          {
+            "name": "1",
+          },
+        ],
+        "wells": [
+          {
+            "columnIndex": 0,
+            "path": "A/1",
+            "rowIndex": 0,
+          },
+        ],
+      },
+      "version": "0.5",
     },
   },
   "success": true,
@@ -1687,6 +1707,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/mis
     "expected": "number",
     "received": "undefined",
     "path": [
+      "ome",
       "plate",
       "acquisitions",
       0,
@@ -1707,6 +1728,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/mis
     "expected": "string",
     "received": "undefined",
     "path": [
+      "ome",
       "plate",
       "columns",
       0,
@@ -1727,6 +1749,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/mis
     "expected": "array",
     "received": "undefined",
     "path": [
+      "ome",
       "plate",
       "columns"
     ],
@@ -1745,6 +1768,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/mis
     "expected": "string",
     "received": "undefined",
     "path": [
+      "ome",
       "plate",
       "rows",
       0,
@@ -1765,6 +1789,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/mis
     "expected": "array",
     "received": "undefined",
     "path": [
+      "ome",
       "plate",
       "rows"
     ],
@@ -1783,6 +1808,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/mis
     "expected": "number",
     "received": "undefined",
     "path": [
+      "ome",
       "plate",
       "wells",
       0,
@@ -1803,6 +1829,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/mis
     "expected": "string",
     "received": "undefined",
     "path": [
+      "ome",
       "plate",
       "wells",
       0,
@@ -1823,6 +1850,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/mis
     "expected": "number",
     "received": "undefined",
     "path": [
+      "ome",
       "plate",
       "wells",
       0,
@@ -1843,6 +1871,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/mis
     "expected": "array",
     "received": "undefined",
     "path": [
+      "ome",
       "plate",
       "wells"
     ],
@@ -1864,6 +1893,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/neg
     "exact": false,
     "message": "Number must be greater than or equal to 0",
     "path": [
+      "ome",
       "plate",
       "acquisitions",
       0,
@@ -1886,6 +1916,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/neg
     "exact": false,
     "message": "Number must be greater than or equal to 0",
     "path": [
+      "ome",
       "plate",
       "acquisitions",
       0,
@@ -1905,6 +1936,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/non
     "code": "invalid_string",
     "message": "Invalid",
     "path": [
+      "ome",
       "plate",
       "columns",
       0,
@@ -1916,6 +1948,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/non
     "code": "invalid_string",
     "message": "Invalid",
     "path": [
+      "ome",
       "plate",
       "wells",
       0,
@@ -1930,24 +1963,27 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/non
 exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/non_alphanumeric_row' 1`] = `
 {
   "data": {
-    "plate": {
-      "columns": [
-        {
-          "name": "A",
-        },
-      ],
-      "rows": [
-        {
-          "name": "A1",
-        },
-      ],
-      "wells": [
-        {
-          "columnIndex": 0,
-          "path": "A/A1",
-          "rowIndex": 0,
-        },
-      ],
+    "ome": {
+      "plate": {
+        "columns": [
+          {
+            "name": "A",
+          },
+        ],
+        "rows": [
+          {
+            "name": "A1",
+          },
+        ],
+        "wells": [
+          {
+            "columnIndex": 0,
+            "path": "A/A1",
+            "rowIndex": 0,
+          },
+        ],
+      },
+      "version": "0.5",
     },
   },
   "success": true,
@@ -1962,6 +1998,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/non
     "expected": "number",
     "received": "string",
     "path": [
+      "ome",
       "plate",
       "acquisitions",
       0,
@@ -1982,6 +2019,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/non
     "expected": "number",
     "received": "string",
     "path": [
+      "ome",
       "plate",
       "acquisitions",
       0,
@@ -2002,6 +2040,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/wel
     "code": "invalid_string",
     "message": "Invalid",
     "path": [
+      "ome",
       "plate",
       "wells",
       0,
@@ -2013,6 +2052,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/wel
     "expected": "number",
     "received": "undefined",
     "path": [
+      "ome",
       "plate",
       "wells",
       0,
@@ -2033,6 +2073,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/wel
     "code": "invalid_string",
     "message": "Invalid",
     "path": [
+      "ome",
       "plate",
       "wells",
       0,
@@ -2044,6 +2085,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/wel
     "expected": "number",
     "received": "undefined",
     "path": [
+      "ome",
       "plate",
       "wells",
       0,
@@ -2067,6 +2109,7 @@ exports[`'Tests for the plate JSON schema' - 'schemas/plate.schema' > 'plate/zer
     "exact": false,
     "message": "Number must be greater than 0",
     "path": [
+      "ome",
       "plate",
       "field_count"
     ]
@@ -2084,27 +2127,11 @@ exports[`'Tests for the strict image-label JSON…' - 'schemas/strict_label.sche
     "expected": "array",
     "received": "undefined",
     "path": [
+      "ome",
       "image-label",
       "colors"
     ],
     "message": "Required"
-  }
-]],
-  "success": false,
-}
-`;
-
-exports[`'Tests for the strict image-label JSON…' - 'schemas/strict_label.schema' > 'image-label/no_version' 1`] = `
-{
-  "error": [ZodError: [
-  {
-    "code": "invalid_literal",
-    "expected": "0.5-dev",
-    "path": [
-      "image-label",
-      "version"
-    ],
-    "message": "Invalid literal value, expected \\"0.5-dev\\""
   }
 ]],
   "success": false,
@@ -2119,6 +2146,7 @@ exports[`'Tests for the strict plate JSON schema' - 'schemas/strict_plate.schema
     "expected": "number",
     "received": "undefined",
     "path": [
+      "ome",
       "plate",
       "acquisitions",
       0,
@@ -2139,6 +2167,7 @@ exports[`'Tests for the strict plate JSON schema' - 'schemas/strict_plate.schema
     "expected": "string",
     "received": "undefined",
     "path": [
+      "ome",
       "plate",
       "acquisitions",
       0,
@@ -2159,6 +2188,7 @@ exports[`'Tests for the strict plate JSON schema' - 'schemas/strict_plate.schema
     "expected": "string",
     "received": "undefined",
     "path": [
+      "ome",
       "plate",
       "name"
     ],
@@ -2169,53 +2199,38 @@ exports[`'Tests for the strict plate JSON schema' - 'schemas/strict_plate.schema
 }
 `;
 
-exports[`'Tests for the strict plate JSON schema' - 'schemas/strict_plate.schema' > 'plate/missing_version' 1`] = `
-{
-  "error": [ZodError: [
-  {
-    "code": "invalid_literal",
-    "expected": "0.5-dev",
-    "path": [
-      "plate",
-      "version"
-    ],
-    "message": "Invalid literal value, expected \\"0.5-dev\\""
-  }
-]],
-  "success": false,
-}
-`;
-
 exports[`'Tests for the strict plate JSON schema' - 'schemas/strict_plate.schema' > 'plate/strict_acquisitions' 1`] = `
 {
   "data": {
-    "plate": {
-      "acquisitions": [
-        {
-          "id": 0,
-          "maximumfieldcount": 1,
-          "name": "0",
-        },
-      ],
-      "columns": [
-        {
-          "name": "A",
-        },
-      ],
-      "name": "test plate",
-      "rows": [
-        {
-          "name": "1",
-        },
-      ],
-      "version": "0.5-dev",
-      "wells": [
-        {
-          "columnIndex": 0,
-          "path": "A/1",
-          "rowIndex": 0,
-        },
-      ],
+    "ome": {
+      "plate": {
+        "acquisitions": [
+          {
+            "id": 0,
+            "maximumfieldcount": 1,
+            "name": "0",
+          },
+        ],
+        "columns": [
+          {
+            "name": "A",
+          },
+        ],
+        "name": "test plate",
+        "rows": [
+          {
+            "name": "1",
+          },
+        ],
+        "wells": [
+          {
+            "columnIndex": 0,
+            "path": "A/1",
+            "rowIndex": 0,
+          },
+        ],
+      },
+      "version": "0.5",
     },
   },
   "success": true,
@@ -2225,60 +2240,47 @@ exports[`'Tests for the strict plate JSON schema' - 'schemas/strict_plate.schema
 exports[`'Tests for the strict plate JSON schema' - 'schemas/strict_plate.schema' > 'plate/strict_no_acquisitions' 1`] = `
 {
   "data": {
-    "plate": {
-      "columns": [
-        {
-          "name": "A",
-        },
-      ],
-      "name": "test plate",
-      "rows": [
-        {
-          "name": "1",
-        },
-      ],
-      "version": "0.5-dev",
-      "wells": [
-        {
-          "columnIndex": 0,
-          "path": "A/1",
-          "rowIndex": 0,
-        },
-      ],
+    "ome": {
+      "plate": {
+        "columns": [
+          {
+            "name": "A",
+          },
+        ],
+        "name": "test plate",
+        "rows": [
+          {
+            "name": "1",
+          },
+        ],
+        "wells": [
+          {
+            "columnIndex": 0,
+            "path": "A/1",
+            "rowIndex": 0,
+          },
+        ],
+      },
+      "version": "0.5",
     },
   },
   "success": true,
 }
 `;
 
-exports[`'Tests for the strict well JSON schema' - 'schemas/strict_well.schema' > 'plate/missing_version' 1`] = `
-{
-  "error": [ZodError: [
-  {
-    "code": "invalid_literal",
-    "expected": "0.5-dev",
-    "path": [
-      "well",
-      "version"
-    ],
-    "message": "Invalid literal value, expected \\"0.5-dev\\""
-  }
-]],
-  "success": false,
-}
-`;
-
 exports[`'Tests for the strict well JSON schema' - 'schemas/strict_well.schema' > 'plate/strict_acquisitions' 1`] = `
 {
   "data": {
-    "well": {
-      "images": [
-        {
-          "acquisition": 0,
-          "path": "0",
-        },
-      ],
-      "version": "0.5-dev",
+    "ome": {
+      "version": "0.5",
+      "well": {
+        "images": [
+          {
+            "acquisition": 0,
+            "path": "0",
+          },
+        ],
+      },
     },
   },
   "success": true,
@@ -2288,13 +2290,15 @@ exports[`'Tests for the strict well JSON schema' - 'schemas/strict_well.schema' 
 exports[`'Tests for the strict well JSON schema' - 'schemas/strict_well.schema' > 'well/strict_no_acquisitions' 1`] = `
 {
   "data": {
-    "well": {
-      "images": [
-        {
-          "path": "0",
-        },
-      ],
-      "version": "0.5-dev",
+    "ome": {
+      "version": "0.5",
+      "well": {
+        "images": [
+          {
+            "path": "0",
+          },
+        ],
+      },
     },
   },
   "success": true,
@@ -2305,12 +2309,13 @@ exports[`'Tests for the well JSON schema' - 'schemas/well.schema' > 'well/duplic
 {
   "error": [ZodError: [
   {
-    "code": "custom",
-    "message": "No duplicate images allowed.",
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
     "path": [
-      "well",
-      "images"
-    ]
+      "ome"
+    ],
+    "message": "Required"
   }
 ]],
   "success": false,
@@ -2321,34 +2326,13 @@ exports[`'Tests for the well JSON schema' - 'schemas/well.schema' > 'well/empty_
 {
   "error": [ZodError: [
   {
-    "code": "too_small",
-    "minimum": 1,
-    "type": "array",
-    "inclusive": true,
-    "exact": false,
-    "message": "Array must contain at least 1 element(s)",
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
     "path": [
-      "well",
-      "images"
-    ]
-  }
-]],
-  "success": false,
-}
-`;
-
-exports[`'Tests for the well JSON schema' - 'schemas/well.schema' > 'well/invalid_version' 1`] = `
-{
-  "error": [ZodError: [
-  {
-    "received": "foo",
-    "code": "invalid_literal",
-    "expected": "0.5-dev",
-    "path": [
-      "well",
-      "version"
+      "ome"
     ],
-    "message": "Invalid literal value, expected \\"0.5-dev\\""
+    "message": "Required"
   }
 ]],
   "success": false,
@@ -2358,13 +2342,16 @@ exports[`'Tests for the well JSON schema' - 'schemas/well.schema' > 'well/invali
 exports[`'Tests for the well JSON schema' - 'schemas/well.schema' > 'well/minimal_acquisitions' 1`] = `
 {
   "data": {
-    "well": {
-      "images": [
-        {
-          "acquisition": 1,
-          "path": "0",
-        },
-      ],
+    "ome": {
+      "version": "0.5",
+      "well": {
+        "images": [
+          {
+            "acquisition": 1,
+            "path": "0",
+          },
+        ],
+      },
     },
   },
   "success": true,
@@ -2374,12 +2361,15 @@ exports[`'Tests for the well JSON schema' - 'schemas/well.schema' > 'well/minima
 exports[`'Tests for the well JSON schema' - 'schemas/well.schema' > 'well/minimal_no_acquisition' 1`] = `
 {
   "data": {
-    "well": {
-      "images": [
-        {
-          "path": "0",
-        },
-      ],
+    "ome": {
+      "version": "0.5",
+      "well": {
+        "images": [
+          {
+            "path": "0",
+          },
+        ],
+      },
     },
   },
   "success": true,
@@ -2391,15 +2381,12 @@ exports[`'Tests for the well JSON schema' - 'schemas/well.schema' > 'well/non_in
   "error": [ZodError: [
   {
     "code": "invalid_type",
-    "expected": "number",
-    "received": "string",
+    "expected": "object",
+    "received": "undefined",
     "path": [
-      "well",
-      "images",
-      0,
-      "acquisition"
+      "ome"
     ],
-    "message": "Expected number, received string"
+    "message": "Required"
   }
 ]],
   "success": false,
