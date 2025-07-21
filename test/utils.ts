@@ -7,7 +7,7 @@ import { z } from "zod";
 import camelcase from "camelcase";
 
 let __dirname = path.dirname(url.fileURLToPath(import.meta.url));
-let fixtures = path.join(__dirname, "..", "ngff");
+let fixtures = path.join(__dirname, "..");
 
 export function globber(version: string) {
   return async (pattern: string) => {
@@ -37,11 +37,11 @@ let Suite = z.object({
 });
 
 export async function gather_test_cases<T extends Record<string, z.ZodSchema>>(
-  version: "0.4" | "latest",
+  version: "0.4" | "0.5" | "latest",
   schemas: T,
 ) {
   let files = await glob.glob(
-    path.join(__dirname, "..", "ngff", version, "/tests/*.json"),
+    path.join(__dirname, "..", version, "/tests/*.json"),
   );
 
   let cases = files.map(async (file) => {
