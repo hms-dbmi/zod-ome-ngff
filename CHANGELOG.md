@@ -1,5 +1,11 @@
 # zod-ome-ngff
 
+## 0.3.0
+
+### Minor Changes
+
+- Add v0.5 schema. ([#20](https://github.com/hms-dbmi/zod-ome-ngff/pull/20))
+
 ## 0.2.0
 
 ### Minor Changes

@@ -1,7 +1,7 @@
 {
   "name": "zod-ome-ngff",
   "description": "zod schemas for OME-NGFF",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
   "author": "Trevor Manz",
   "license": "MIT",
