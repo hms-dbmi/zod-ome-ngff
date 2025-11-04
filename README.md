@@ -1,7 +1,7 @@
 # zod-ome-ngff
 
 [![Node version](https://img.shields.io/npm/v/zod-ome-ngff.svg)](https://www.npmjs.com/package/zod-ome-ngff)
-![GitHub Actions](https://github.com/manzt/zod-ome-ngff/actions/workflows/ci.yml/badge.svg)
+![GitHub Actions](https://github.com/hms-dbmi/zod-ome-ngff/actions/workflows/ci.yml/badge.svg)
 
 [zod](https://github.com/colinhacks/zod) schemas for
 [ome-ngff](https://github.com/ome/ngff). modules are generated
