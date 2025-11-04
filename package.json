@@ -32,9 +32,17 @@
       "types": "./dist/0.4.d.ts",
       "import": "./dist/0.4.js"
     },
-    ".": {
+    "./0.5": {
+      "types": "./dist/0.5.d.ts",
+      "import": "./dist/0.5.js"
+    },
+    "./latest": {
       "types": "./dist/latest.d.ts",
       "import": "./dist/latest.js"
+    },
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
     }
   },
   "devDependencies": {
@@ -54,8 +62,8 @@
   "peerDependencies": {
     "zod": "^3.0.0"
   },
-  "packageManager": "pnpm@7.28.0",
+  "packageManager": "pnpm@9.5.0",
   "engines": {
-    "pnpm": "^7.0.0"
+    "pnpm": "^9.0.0"
   }
 }

@@ -1,6 +1,19 @@
 import { z } from "zod";
 import { to_date } from "./shared.js";
 
+export const VersionSchema = z
+  .enum(["0.5"])
+  .describe("The version of the OME-Zarr Metadata");
+
+
+function withVersion<T1 extends z.ZodRawShape, T2 extends z.ZodObject<T1>>(InnerSchema: T2) {
+  return z.object({
+    ome: InnerSchema.extend({
+      version: VersionSchema,
+    }).describe("The versioned OME-Zarr Metadata namespace"),
+  }).describe("The zarr.json attributes key");
+}
+
 // PLATE
 
 const StrictAquisition = z.object({
@@ -9,14 +22,14 @@ const StrictAquisition = z.object({
     .int()
     .gte(0)
     .describe(
-      "A unique identifier within the context of the plate",
+      "A unique identifier within the context of the plate"
     ),
   maximumfieldcount: z
     .number()
     .int()
     .gt(0)
     .describe(
-      "The maximum number of fields of view for the acquisition",
+      "The maximum number of fields of view for the acquisition"
     ),
   name: z.string().describe("The name of the acquisition"),
   description: z
@@ -28,7 +41,7 @@ const StrictAquisition = z.object({
     .int()
     .gte(0)
     .describe(
-      "The start timestamp of the acquisition, expressed as epoch time i.e. the number seconds since the Epoch",
+      "The start timestamp of the acquisition, expressed as epoch time i.e. the number seconds since the Epoch"
     )
     .transform(to_date)
     .optional(),
@@ -37,7 +50,7 @@ const StrictAquisition = z.object({
     .int()
     .gte(0)
     .describe(
-      "The end timestamp of the acquisition, expressed as epoch time i.e. the number seconds since the Epoch",
+      "The end timestamp of the acquisition, expressed as epoch time i.e. the number seconds since the Epoch"
     )
     .transform(to_date)
     .optional(),
@@ -122,9 +135,6 @@ const FieldCount = z
 function createPlateSchema<T extends z.ZodTypeAny>(Aquisition: T) {
   return z.object({
     name: z.string().describe("The name of the plate"),
-    version: z
-      .literal("0.4")
-      .describe("The version of the specification"),
     acquisitions: z.array(Aquisition)
       .describe("The acquisitions for this plate")
       .optional(),
@@ -135,37 +145,33 @@ function createPlateSchema<T extends z.ZodTypeAny>(Aquisition: T) {
   });
 }
 
-export const PlateSchema = z
-  .object({
-    plate: createPlateSchema(Aquisition).partial({ version: true, name: true }),
-  })
-  .describe("JSON from OME-NGFF .zattrs");
+export const PlateSchema = withVersion(z.object({
+  plate: createPlateSchema(Aquisition).partial({ name: true }),
+}));
 
-export const StrictPlateSchema = z
-  .object({ plate: createPlateSchema(StrictAquisition) })
-  .describe("JSON from OME-NGFF .zattrs");
+export const StrictPlateSchema = withVersion(z.object({
+  plate: createPlateSchema(StrictAquisition),
+}));
 
 // BF2Raw
 
-export const Bf2RawSchema = z
-  .object({
-    "bioformats2raw.layout": z
-      .literal(3)
-      .describe("The top-level identifier metadata added by bioformats2raw"),
-  })
-  .describe("JSON from OME-NGFF .zattrs");
+export const Bf2RawSchema = withVersion(z.object({
+  "bioformats2raw.layout": z
+    .literal(3)
+    .describe(
+      "The top-level identifier metadata added by bioformats2raw"
+    ),
+}));
 
 // OME
 
-export const OmeSchema = z
-  .object({
-    series: z
-      .array(z.string())
-      .describe(
-        "An array of the same length and the same order as the images defined in the OME-XML",
-      ),
-  })
-  .describe("JSON from OME-NGFF OME/.zattrs linked to an OME-XML file");
+export const OmeSchema = withVersion(z.object({
+  series: z
+    .array(z.string())
+    .describe(
+      "An array of the same length and the same order as the images defined in the OME-XML"
+    )
+}));
 
 // Image
 
@@ -252,30 +258,30 @@ const StrictMultiscale = z.object({
       }),
     )
     .min(1),
-  version: z.literal("0.4"),
   axes: Axes,
   coordinateTransformations: CoordinateTransformations.optional(),
 });
 
 const Multiscale = StrictMultiscale.partial({
   name: true,
-  version: true,
 });
 
 const Omero = z.object({
   channels: z.array(
     z.object({
-      window: z.object({
-        end: z.number(),
-        max: z.number(),
-        min: z.number(),
-        start: z.number(),
-      }),
+      window: z
+        .object({
+          end: z.number(),
+          max: z.number(),
+          min: z.number(),
+          start: z.number(),
+        })
+        .optional(),
       label: z.string().optional(),
       family: z.string().optional(),
-      color: z.string(),
+      color: z.string().optional(),
       active: z.boolean().optional(),
-    }),
+    })
   ),
 });
 
@@ -285,13 +291,12 @@ function createImageSchema<T extends z.ZodTypeAny>(Multiscale: T) {
       .min(1)
       .describe("The multiscale datasets for this image"),
     omero: Omero.optional(),
-  })
-    .describe("JSON from OME-NGFF .zattrs");
+  });
 }
 
-export const ImageSchema = createImageSchema(Multiscale);
+export const ImageSchema = withVersion(createImageSchema(Multiscale));
 
-export const StrictImageSchema = createImageSchema(StrictMultiscale);
+export const StrictImageSchema = withVersion(createImageSchema(StrictMultiscale));
 
 // Label
 
@@ -337,23 +342,19 @@ const StrictImageLabelSchema = z.object({
     .object({ image: z.string().optional() })
     .describe("The source of this label image")
     .optional(),
-  version: z
-    .literal("0.4")
-    .describe("The version of the specification"),
 });
 
 const ImageLabelSchema = StrictImageLabelSchema.partial({
   colors: true,
-  version: true,
 });
 
-export const LabelSchema = z
-  .object({ "image-label": ImageLabelSchema })
-  .describe("JSON from OME-NGFF .zattrs");
+export const LabelSchema = withVersion(z.object({
+  "image-label": ImageLabelSchema
+}));
 
-export const StrictLabelSchema = z
-  .object({ "image-label": StrictImageLabelSchema })
-  .describe("JSON from OME-NGFF .zattrs");
+export const StrictLabelSchema = withVersion(z.object({
+  "image-label": StrictImageLabelSchema
+}));
 
 // Well
 
@@ -383,15 +384,21 @@ const StrictInnerWellSchema = z.object({
         });
       }
     }),
-  version: z
-    .literal("0.4")
-    .describe("The version of the specification"),
 });
 
-export const WellSchema = z
-  .object({ well: StrictInnerWellSchema.partial({ version: true }) })
-  .describe("JSON from OME-NGFF .zattrs");
+export const WellSchema = withVersion(z.object({
+  well: StrictInnerWellSchema.partial({ })
+}));
 
-export const StrictWellSchema = z
-  .object({ well: StrictInnerWellSchema })
-  .describe("JSON from OME-NGFF .zattrs");
+export const StrictWellSchema = withVersion(z.object({
+  well: StrictInnerWellSchema
+}));
+
+export const OmeZarrSchema = z.union([ 
+  Bf2RawSchema,
+  ImageSchema,
+  ImageLabelSchema,
+  OmeSchema,
+  PlateSchema,
+  WellSchema,
+]);
