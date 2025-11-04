@@ -15,16 +15,11 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: 18
-
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
-        id: pnpm-install
+          node-version: '18.x'
+      - uses: pnpm/action-setup@v4
         with:
-          version: 7
           run_install: true
 
       - name: Build package

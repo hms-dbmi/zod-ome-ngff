@@ -11,12 +11,13 @@ jobs:
   Lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2.2.4
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
-      - run: pnpm install
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: true
       - run: pnpm check
 
   Tests:
@@ -25,10 +26,11 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: recursive
-
-      - uses: pnpm/action-setup@v2.2.4
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: true
       - run: pnpm install
       - run: pnpm coverage
