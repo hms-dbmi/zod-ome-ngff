@@ -6,13 +6,17 @@ export const VersionSchema = z
   .describe("The version of the OME-Zarr Metadata");
 
 
-function withVersion<T1 extends z.ZodRawShape, T2 extends z.ZodObject<T1>>(InnerSchema: T2) {
-  return z.object({
-    ome: InnerSchema.extend({
-      version: VersionSchema,
+function withVersion<T extends z.ZodRawShape>(InnerSchema: T) {
+  const withVersionSchema = z.object({
+    ome: z.object({
+      ...InnerSchema,
+      version: VersionSchema
     }).describe("The versioned OME-Zarr Metadata namespace"),
   }).describe("The zarr.json attributes key");
+
+  return withVersionSchema
 }
+
 
 // PLATE
 
@@ -147,11 +151,11 @@ function createPlateSchema<T extends z.ZodTypeAny>(Aquisition: T) {
 
 export const PlateSchema = withVersion(z.object({
   plate: createPlateSchema(Aquisition).partial({ name: true }),
-}));
+}).shape);
 
 export const StrictPlateSchema = withVersion(z.object({
   plate: createPlateSchema(StrictAquisition),
-}));
+}).shape);
 
 // BF2Raw
 
@@ -161,7 +165,7 @@ export const Bf2RawSchema = withVersion(z.object({
     .describe(
       "The top-level identifier metadata added by bioformats2raw"
     ),
-}));
+}).shape);
 
 // OME
 
@@ -171,7 +175,7 @@ export const OmeSchema = withVersion(z.object({
     .describe(
       "An array of the same length and the same order as the images defined in the OME-XML"
     )
-}));
+}).shape);
 
 // Image
 
@@ -294,9 +298,9 @@ function createImageSchema<T extends z.ZodTypeAny>(Multiscale: T) {
   });
 }
 
-export const ImageSchema = withVersion(createImageSchema(Multiscale));
+export const ImageSchema = withVersion(createImageSchema(Multiscale).shape);
 
-export const StrictImageSchema = withVersion(createImageSchema(StrictMultiscale));
+export const StrictImageSchema = withVersion(createImageSchema(StrictMultiscale).shape);
 
 // Label
 
@@ -350,11 +354,11 @@ const ImageLabelSchema = StrictImageLabelSchema.partial({
 
 export const LabelSchema = withVersion(z.object({
   "image-label": ImageLabelSchema
-}));
+}).shape);
 
 export const StrictLabelSchema = withVersion(z.object({
   "image-label": StrictImageLabelSchema
-}));
+}).shape);
 
 // Well
 
@@ -386,15 +390,16 @@ const StrictInnerWellSchema = z.object({
     }),
 });
 
+
 export const WellSchema = withVersion(z.object({
-  well: StrictInnerWellSchema.partial({ })
-}));
+  well: StrictInnerWellSchema.partial({})
+}).shape);
 
 export const StrictWellSchema = withVersion(z.object({
   well: StrictInnerWellSchema
-}));
+}).shape);
 
-export const OmeZarrSchema = z.union([ 
+export const OmeZarrSchema = z.union([
   Bf2RawSchema,
   ImageSchema,
   ImageLabelSchema,
