@@ -13,6 +13,7 @@
     "coverage": "vitest run --coverage",
     "check": "tsc && publint",
     "build": "tsc && publint",
+    "prepare": "tsc && publint",
     "fmt": "deno fmt src test"
   },
   "exports": {
